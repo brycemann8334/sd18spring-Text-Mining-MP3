@@ -5,4 +5,4 @@ add the filename that you just saved peter pan under, and follow the remaining p
 words just rerun the program and enter in the same information as you did before but with the final option switched.
 
 PROJECT WRITE-UP/REFLECTION
-[a relative link](project_write_up.txt)
+[here](project_write_up.txt)
