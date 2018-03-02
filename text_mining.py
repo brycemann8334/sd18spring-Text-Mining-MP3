@@ -35,7 +35,7 @@ def get_word_str(file_name, begin_str=None, end_str=None):
     #check for a begin_str
     if begin_str==None:
         #skip over lines that are part of the project Gutenberg legalese
-        while lines[curr_line].find('*** START') == -1:
+        while lines[curr_line].find('***') == -1:
             curr_line += 1
         lines = lines[curr_line+1:]
     else:
@@ -63,10 +63,10 @@ def get_word_str(file_name, begin_str=None, end_str=None):
     #use dictionary comprehension to make a map so translate removes punctuation
     table = str.maketrans({key: None for key in string.punctuation})
     word_str = word_str.translate(table)
-    #strip all whitespace except spaces
-    word_str = word_str.replace("\r", '')
-    word_str = word_str.replace("\n", '')
-    word_str = word_str.replace("\t", '')
+    #strip all whitespace, replace with spaces
+    word_str = word_str.replace("\r", ' ')
+    word_str = word_str.replace("\n", ' ')
+    word_str = word_str.replace("\t", ' ')
 
     return word_str
 
@@ -79,8 +79,8 @@ def add_to_data_set(file_name, title_str, begin_str=None, end_str=None):
     to associate with that file.
 
     allows you to build and organize a growing collection of files to analyze.
-    If reset is set to you want to rebuild the data set either move or delete
-    the str and title files from the directory
+    If you want to rebuild the data set either move or delete the str and title
+    files from the directory
 
     UNIT TEST:
     Tested towards bottom of page using test file names and test title, printed
@@ -121,9 +121,7 @@ def add_to_data_set(file_name, title_str, begin_str=None, end_str=None):
 def compute_similarity_matrix(file_name, title_str, begin_str=None, end_str=None,
     stopword_str=None):
     """
-    input a file_name, the beginning and end strings, a file to store a
-    str_list, a title you want associated with the file, and a file to store
-    that title.
+    input a file_name and a title you want associated with the file.
 
     if you want analysis to not include most common english words, set 4th
     argument to 'english'
