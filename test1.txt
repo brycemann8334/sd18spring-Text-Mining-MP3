@@ -1,0 +1,7 @@
+This is garbage that I am trying to cut out...
+
+Beginning.
+Hello, this is a test of get_word_str.
+End.
+
+This is also garbage that I am trying to cut out
